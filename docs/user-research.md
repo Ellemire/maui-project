@@ -2,7 +2,7 @@
 # User Survey
 
 This document summarizes the findings from the user survey conducted to gather insights about potential users' preferences about an online version of hidden identity card game.
-We collected data on players’ opinions about popular hidden-identity games, the impact of specific mechanics on the game experience, thematic preferences, and the platforms they use.
+We collected data on playersâ€™ opinions about popular hidden-identity games, the impact of specific mechanics on the game experience, thematic preferences, and the platforms they use.
 
 ## Survey Link
 
@@ -14,7 +14,7 @@ The survey received a total of 15 responses. Below are some key insights gathere
 
 1. The highest-rated games with hidden identity mechanics (with a rating above 70%) are::
 	- "Avalon" (Based on "The Resistance")
-	- "Pos¹¿ek Cthulhu" (literal translation: The Statue of Cthulhu)
+	- "PosÄ…Å¼ek Cthulhu" (literal translation: The Statue of Cthulhu)
 	- "Temple of Terror" (Polish version: "Amazonki")
 	- All results are shown in the chart below:
 
@@ -64,17 +64,17 @@ The survey received a total of 15 responses. Below are some key insights gathere
 ## Survey Analysis
 
 1. Mechanics Preferences
+	- Games with gameplay based on probability and deduction are favored.
     - Players highly value special powers and role variations, indicating a preference for dynamic gameplay.
     - Negative feedback on player elimination and waiting times suggests a desire for continuous engagement.
 
-2. Platform Preferences
+3. Platform Preferences
     - A significant majority are interested in mobile gaming, with Android being the most popular platform.
     - PC gaming also has a notable presence, indicating a need for cross-platform availability.
 	- Android and Windows are platforms that cover the needs of 86% of surveyed users.
 
-3. Thematic Preferences
+4. Thematic Preferences
 	- Users prefer games with consistent game design and intuitive fractions goals.
-	- Games with gameplay based on probability and deduction are favored.
 	- Japan-themed games received the highest preference, followed by Cthulhu and war themes.
 
 # User Personas
