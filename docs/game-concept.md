@@ -4,23 +4,30 @@ This document outlines the core concept of the game, including its genre, descri
 
 # Description
 
-The designed game is based on hidden identity mechanics, where players are divided into secret factions and assigned specific roles with associated privileged information. 
-The core game loop follows a turn-based structure, where each turn consists of selecting a subset of players that satisfies the specific mission requirements for that round. 
-Once the selection is approved, the chosen team represents the collective during the task execution, the outcome of which directly progresses the game toward the ultimate victory conditions.
+## Story
 
-The narrative follows the Convoy of the Numbian Princess as it treks across a treacherous desert to forge a vital political alliance.
-However, the convoy is infiltrated by Desert Nomads — saboteurs who seek to protect their oases from foreign control by depleting the convoy’s water supplies.
-
-Each round centers on the survival of the convoy as it moves from one desert well to the next, requiring careful selection of "Emissaries" to manage negotiations with the locals.
+The procession of the Numbian Princess travels across the desert to forge an alliance. 
+Hidden among the convoy are representatives of the Nomads, who seek to protect their oases from being taken over after the alliance is formed. 
+For this reason, they aim to prevent the journey across the desert by restricting access to water.
+During each stop, the convoy sends emissaries to gather water, but at the wells they encounter Nomad representatives who impose a toll on their use. 
+The emissaries must negotiate access to the water.
+If the Nomads succeed in depleting the convoy’s water supplies, the convoy perishes in the desert, and the Nomads retreat to their allied strongholds.
 
 ## Genre & Theme
 
 **Genre**: Social Deduction / Hidden Identity
 
 **Theme**: The game is set in a mythical late-Antiquity era, drawing inspiration from a blend of Ancient Egyptian mysticism and nomadic Saharan cultures.
-While the Princess seeks to unite two nations through a political marriage, the Nomads view this alliance as a death sentence for their ancestral lands.
 
 **Art Style**: Stylized realism with high-contrast lighting—utilizing deep shadows (for mystery) and golden, sun-bleached hues (for the desert heat).
+
+# Game mechanics
+
+## Overview
+
+The designed game is based on hidden identity mechanics, where players are divided into secret factions and assigned specific roles with associated privileged information. 
+The core game loop follows a turn-based structure, where each turn consists of selecting a subset of players that satisfies the specific mission requirements for that round. 
+Once the selection is approved, the chosen team represents the collective during the task execution, the outcome of which directly progresses the game toward the ultimate victory conditions.
 
 ## Available Roles
 
@@ -48,7 +55,7 @@ The roles available in the game are divided into two main factions:
 1. Selection Phase: Players are assigned hidden roles and teams.
 2. While winning condition not met:
 	1. While team is not approved:
-        1. Team Selection Phase: The team leader proposes a team for the mission that meats mission conditions.
+        1. Team Selection Phase: The team leader proposes a team of emissaries that meats mission conditions.
         2. Voting Phase: All players vote to approve or reject the proposed team.
         3. Transition of Leadership: Leadership passes to the next player.
     2. Mission Phase: If the team is approved, team members secretly choose "Success", "Failure", or "Reverse" cards.
