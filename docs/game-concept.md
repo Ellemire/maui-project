@@ -9,29 +9,39 @@ The core game loop follows a turn-based structure, where each turn consists of s
 Once the selection is approved, the chosen team represents the collective during the task execution, the outcome of which directly progresses the game toward the ultimate victory conditions.
 
 The narrative follows the Convoy of the Numbian Princess as it treks across a treacherous desert to forge a vital political alliance.
-However, the convoy is infiltrated by Desert Nomads—saboteurs who seek to protect their oases from foreign control by depleting the convoy’s water supplies.
+However, the convoy is infiltrated by Desert Nomads — saboteurs who seek to protect their oases from foreign control by depleting the convoy’s water supplies.
+
+Each round centers on the survival of the convoy as it moves from one desert well to the next, requiring careful selection of "Emissaries" to manage negotiations with the locals.
 
 ## Genre & Theme
 
-Genre: Social Deduction / Hidden Identity
+**Genre**: Social Deduction / Hidden Identity
 
-The game is set in a mythical late-Antiquity era, drawing inspiration from a blend of Ancient Egyptian mysticism and nomadic Saharan cultures.
+**Theme**: The game is set in a mythical late-Antiquity era, drawing inspiration from a blend of Ancient Egyptian mysticism and nomadic Saharan cultures.
+While the Princess seeks to unite two nations through a political marriage, the Nomads view this alliance as a death sentence for their ancestral lands.
+
+**Art Style**: Stylized realism with high-contrast lighting—utilizing deep shadows (for mystery) and golden, sun-bleached hues (for the desert heat).
 
 ## Available Roles
 
 The roles available in the game are divided into two main factions: 
 1. The Royal Convoy: Their goal is to secure enough water to reach the alliance meeting. They must identify the infiltrators before the supplies run dry.
-    - **The Numbian Princess**: A key figure whose safety is paramount. If she reaches the alliance meeting, the Convoy wins.
-    - **High Priestess of Isis**: She possesses privileged information regarding the identity of the Nomads but must remain discreet to avoid targeted sabotage.
-    - ***Ta-Seti* Guard**: A protective role that has informations about Priestess of Isis identity.
-    - ***Chabir* Guide** (The Pathfinder): Possesses a One-Time Use (Ultimate) ability. Once per game, the Guide can lead the team to a "Hidden Oasis," guaranteeing a mission success regardless of Nomad interference.
-    - **The Translator** (Good Negotiator): Can use their linguistic skills to influence the outcome of a negotiation session, potentially neutralizing a minor sabotage.
-2. The Desert Nomads: Their goal is to remain hidden and ensure that three water-gathering missions fail. If the convoy runs out of water, the Nomads win and retreat to their desert strongholds.
-    - **The Assassin**: A role focused on the endgame "Assassination" phase to steal victory by identifying the High Priestess.
-    - **The Translator** (Evil Negotiator): Can sabotage negotiations by misleading the emissaries, changing a successful outcome into a failure.
-    - **The Witch**: Appears to Guard as the High Priestess.
-    - **The Lone Nomad**: Does not have information about other Nomads.
-    - **The Hidden Nomad**: Appears as a Convoy member to the Priestess.
+2. The Desert Nomads: If the convoy runs out of water or the Priestess die, the Nomads win and retreat to their desert strongholds.
+
+
+| Faction           | Role                      | Description / Abilities |
+|-------------------|---------------------------|--------------------------|
+| Royal Convoy      | Numbian Princess/Priestess| A key figure. If she reaches the alliance meeting, the Convoy wins. |
+| Royal Convoy      | High Priestess of Isis    | Possesses confidential information about the identities of the Nomads. Must act discreetly to avoid sabotage. |
+| Royal Convoy      | Ta-Seti Guard             | A protective role. Knows the identity of the High Priestess of Isis. |
+| Royal Convoy      | Chabir Guide              | The Pathfinder with a one-time special ability. Once per game, can lead the team to a Hidden Oasis, guaranteeing mission success regardless of Nomad interference. |
+| Royal Convoy      | Translator (Good)         | Good Negotiator. Can influence the outcome of a negotiation, potentially neutralizing minor sabotage. Uses a reverse card. |
+| Desert Nomads     | Assassin                  | Endgame-focused role. During the “Assassination” phase, attempts to identify the High Priestess of Isis to steal victory. |
+| Desert Nomads     | Translator (Evil)         | Evil Negotiator. Sabotages negotiations, turning success into failure. Uses a reverse card. |
+| Desert Nomads     | Witch                     | Appears to the Guard as the High Priestess of Isis. |
+| Desert Nomads     | Lone Nomad                | Has no information about other Nomads. |
+| Desert Nomads     | Envious Drover            | Appears as a Convoy member to the High Priestess. |
+
 
 ## Core Loop
 
@@ -46,7 +56,6 @@ The roles available in the game are divided into two main factions:
 3. Endgame Phase: The roles are revealed and the winning team is announced.
 
 ![Planning Phase](images/core-loop.png)
-
 
 # Platforms
 
