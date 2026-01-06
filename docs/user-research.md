@@ -26,7 +26,7 @@ The survey received a total of 15 responses. Below are some key insights gathere
 	- More than two fractions (53% of respondents)
 	- All results are shown in the chart below:
 
-	![Positive impact game mecanics chart](images/positive-impact-mechanics.png)
+	![Positive impact game mechanics chart](images/positive-impact-mechanics.png)
 
 3. The most important mechanics that was pointed to have negative impact on the game expirience:
 	- Players elimination (47% of respondents)
