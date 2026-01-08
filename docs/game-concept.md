@@ -31,12 +31,12 @@ Once the selection is approved, the chosen team represents the collective during
 
 ## Available Roles
 
-The roles available in the game are divided into two main factions: 
+The roles available in the game are divided into two main fractions: 
 1. The Royal Convoy: Their goal is to secure enough water to reach the alliance meeting. They must identify the infiltrators before the supplies run dry.
 2. The Desert Nomads: If the convoy runs out of water or the Priestess die, the Nomads win and retreat to their desert strongholds.
 
 
-| Faction           | Role                      | Description / Abilities |
+| Fraction          | Role                      | Description / Abilities |
 |-------------------|---------------------------|--------------------------|
 | Royal Convoy      | Numbian Princess/Priestess| A key figure. If she reaches the alliance meeting, the Convoy wins. |
 | Royal Convoy      | High Priestess of Isis    | Possesses confidential information about the identities of the Nomads. Must act discreetly to avoid sabotage. |
@@ -52,9 +52,9 @@ The roles available in the game are divided into two main factions:
 
 ## Core Loop
 
-1. Selection Phase: Players are assigned hidden roles and teams.
-2. While winning condition not met:
-	1. While team is not approved:
+1. Beginning Phase: Players are assigned hidden roles and teams.
+2. Core game Phase: While winning condition not met:
+	1. Selection Phase: While team is not approved:
         1. Team Selection Phase: The team leader proposes a team of emissaries that meats mission conditions.
         2. Voting Phase: All players vote to approve or reject the proposed team.
         3. Transition of Leadership: Leadership passes to the next player.
@@ -62,7 +62,7 @@ The roles available in the game are divided into two main factions:
     3. Resolution Phase: The outcome of the mission is determined.
 3. Endgame Phase: The roles are revealed and the winning team is announced.
 
-![Planning Phase](images/core-loop.png)
+![Core Loop](images/core-loop.png)
 
 # Platforms
 
