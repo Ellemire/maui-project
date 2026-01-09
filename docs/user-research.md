@@ -8,6 +8,7 @@ We collected data on players’ opinions about popular hidden-identity games, th
 
 User Survey was conducted through Google Forms and can be found [here](https://docs.google.com/forms/d/e/1FAIpQLSdgvIP3tgb5npGF5njSEMRlxEN7sHkjaFhnIp61Ir1vEuL9Lw/viewform?usp=header).
 The intended respondents of the survey were players of card games featuring hidden identity mechanics.
+
 ## Survey Results
 
 The survey received a total of 15 responses. Below are some key insights gathered from the survey:

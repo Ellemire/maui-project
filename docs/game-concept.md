@@ -43,8 +43,10 @@ The roles available in the game are divided into two main fractions:
 | Royal Convoy      | Ta-Seti Guard             | A protective role. Knows the identity of the High Priestess of Isis. |
 | Royal Convoy      | Chabir Guide              | The Pathfinder with a one-time special ability. Once per game, can lead the team to a Hidden Oasis, guaranteeing mission success regardless of Nomad interference. |
 | Royal Convoy      | Translator (Good)         | Good Negotiator. Can influence the outcome of a negotiation, potentially neutralizing minor sabotage. Uses a reverse card. |
+| Royal Convoy      | Scout (Good)              | After mission voting can swap places with someone on the mission |
 | Desert Nomads     | Assassin                  | Endgame-focused role. During the “Assassination” phase, attempts to identify the High Priestess of Isis to steal victory. |
 | Desert Nomads     | Translator (Evil)         | Evil Negotiator. Sabotages negotiations, turning success into failure. Uses a reverse card. |
+| Desert Nomads     | Scout (Evil)              | After mission voting can swap places with someone on the mission |
 | Desert Nomads     | Witch                     | Appears to the Guard as the High Priestess of Isis. |
 | Desert Nomads     | Lone Nomad                | Has no information about other Nomads. |
 | Desert Nomads     | Envious Drover            | Appears as a Convoy member to the High Priestess. |
