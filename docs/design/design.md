@@ -10,7 +10,7 @@ This document outlines the design process and decisions made for the game projec
 
 Users: Players and Game hosts
 
-Context: Multiplatform app for a online version of card game with hidden identities 
+Context: Multiplatform app for an online version of a card game with hidden identities 
 
 Content: Game enviroment, Game state, Game rules, Game mechanics 
 
