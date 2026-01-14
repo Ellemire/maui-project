@@ -4,6 +4,7 @@ A non-profit fun-made project focused on developing a cross-platform hidden-iden
 # Table of Contents
 - [Game Concept](#game-concept)
 - [UI/UX Design](#uiux-design)
+- [Roadmap](#roadmap)
 - [~~Technology Stack~~ (not implemented yet)](#technology-stack)
 - [~~Architecture~~ (not implemented yet)](#architecture)
 - [~~Final Product~~ (not implemented yet)](#final-product)
@@ -32,3 +33,14 @@ These prototypes were tested with users to gather feedback and make improvements
 
 Expansion: [design.md](docs/design/design.md)
 
+# Roadmap
+
+The project is currently in the design phase, with the following milestones planned:
+1. UX Design and Game Concept (Completed)
+2. UI Design and Game Preparation (In Progress)
+3. Development of Core Game Mechanics - Minimum Viable Product (Upcoming)
+4. Adding Advanced Features (Upcoming)
+5. Testing and Quality Assurance (Upcoming)
+6. Launch and Post-Launch Support (Upcoming)
+
+![Roadmap](docs/images/roadmap.png)
