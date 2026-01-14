@@ -79,7 +79,11 @@ TODO:
 
 ### Color Palette
 
-[Color Palette Image]
+Color palette was prepared for both light and dark mode. 
+Used colors with key contrast values are shown below:
+
+![Color Palette Image](color-palette-light.png)
+![Color Palette Dark Image](color-palette-dark.png)
 
 ### Typography
 
