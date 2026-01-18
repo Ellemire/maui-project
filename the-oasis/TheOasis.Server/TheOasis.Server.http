@@ -1,0 +1,6 @@
+@TheOasis.Server_HostAddress = http://localhost:5053
+
+GET {{TheOasis.Server_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="the-oasis/TheOasis.Client/TheOasis.Client.csproj" />
+  <Project Path="the-oasis/TheOasis.Server/TheOasis.Server.csproj" />
+  <Project Path="the-oasis/TheOasis.Shared/TheOasis.Shared.csproj" />
+</Solution>
