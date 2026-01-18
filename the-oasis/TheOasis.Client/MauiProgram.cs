@@ -13,6 +13,11 @@ namespace TheOasis.Client
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+                    fonts.AddFont("MrBedfort-Regular.ttf", "MrBedfort");
+                    fonts.AddFont("Merriweather-VariableFont.ttf", "MerriweatherRegular");
+                    fonts.AddFont("Merriweather-Italic-VariableFont.ttf", "MerriweatherItalic");
+                    fonts.AddFont("MerriweatherSans-VariableFont.ttf", "MerriweatherSansRegular");
+                    fonts.AddFont("MerriweatherSans-Italic-VariableFont.ttf", "MerriweatherSansItalic");
                 });
 
 #if DEBUG
