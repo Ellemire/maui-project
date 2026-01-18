@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TheOasis.Client.LobbyPage"
+             BackgroundColor="#1a1a1a"
+             NavigationPage.HasBackButton="False">
+
+    <Grid RowDefinitions="Auto, *, Auto" Padding="20">
+
+        <VerticalStackLayout Grid.Row="0" Spacing="10" HorizontalOptions="Center">
+            <Label Text="GAME CODE" TextColor="#888" FontSize="14" HorizontalTextAlignment="Center"/>
+
+            <Border StrokeShape="RoundRectangle 10" 
+                    Stroke="Transparent"
+                    BackgroundColor="#F59E0B" 
+                    Padding="20,10">
+                <Label x:Name="GameCodeLabel" 
+                       Text="XXXX" 
+                       TextColor="Black" 
+                       FontSize="32" 
+                       FontAttributes="Bold" 
+                       CharacterSpacing="5"/>
+            </Border>
+
+            <Label Text="Waiting for players..." TextColor="#CCC" FontAttributes="Italic"/>
+        </VerticalStackLayout>
+
+        <CollectionView x:Name="PlayersList" Grid.Row="1" Margin="0,30">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Border StrokeShape="RoundRectangle 8"
+                            Stroke="Transparent"
+                            BackgroundColor="#2d3e50" 
+                            Margin="0,5" 
+                            Padding="15">
+                        <Grid ColumnDefinitions="*, Auto">
+                            <Label Text="{Binding .}" TextColor="White" FontSize="18" VerticalOptions="Center"/>
+                            <Label Grid.Column="1" Text="👤" TextColor="#4ade80"/>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <VerticalStackLayout Grid.Row="2" Spacing="15">
+
+            <Grid ColumnDefinitions="*, *" ColumnSpacing="10">
+                <Border StrokeShape="RoundRectangle 0" Stroke="Transparent" BackgroundColor="#333" Padding="10">
+                    <Label Text="Win condition" TextColor="Gray" HorizontalOptions="Center" FontSize="10"/>
+                </Border>
+
+                <Border StrokeShape="RoundRectangle 0" Stroke="Transparent" BackgroundColor="#333" Padding="10" Grid.Column="1">
+                    <Label Text="Roles count" TextColor="Gray" HorizontalOptions="Center" FontSize="10"/>
+                </Border>
+            </Grid>
+
+            <Button x:Name="StartGameBtn"
+                    Text="START GAME"
+                    Clicked="OnStartGameClicked"
+                    BackgroundColor="#F59E0B"
+                    TextColor="Black"
+                    FontAttributes="Bold"
+                    HeightRequest="50"
+                    IsVisible="False"/>
+
+            <Button Text="Leave Lobby"
+                    Clicked="OnLeaveClicked"
+                    BackgroundColor="Transparent"
+                    TextColor="#ef4444"/>
+        </VerticalStackLayout>
+    </Grid>
+</ContentPage>
