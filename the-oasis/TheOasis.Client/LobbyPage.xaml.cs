@@ -8,16 +8,18 @@ public partial class LobbyPage : ContentPage
 {
     private readonly HubConnection _hubConnection;
     private readonly GameSessionDto _currentSession;
+    private readonly string _myNickname;
 
     // ObservableCollection updates the UI automatically
     public ObservableCollection<string> Players { get; set; } = new();
 
-    public LobbyPage(GameSessionDto session, HubConnection hubConnection)
+    public LobbyPage(GameSessionDto session, HubConnection hubConnection, string myNickname)
     {
         InitializeComponent();
 
         _currentSession = session;
         _hubConnection = hubConnection;
+        _myNickname = myNickname;
 
         // Bind data
         PlayersList.ItemsSource = Players;
@@ -51,6 +53,18 @@ public partial class LobbyPage : ContentPage
             });
         });
 
+        // Listen: Player Left
+        _hubConnection.On<string>("PlayerLeft", (leftPlayerName) =>
+        {
+            MainThread.BeginInvokeOnMainThread(() =>
+            {
+                if (Players.Contains(leftPlayerName))
+                {
+                    Players.Remove(leftPlayerName);
+                }
+            });
+        });
+
         // Listen: Host Started Game
         _hubConnection.On("GameStarted", async () =>
         {
@@ -76,7 +90,19 @@ public partial class LobbyPage : ContentPage
 
     private async void OnLeaveClicked(object sender, EventArgs e)
     {
-        // Logic to leave the group on server should be added here
-        await Navigation.PopAsync();
+        try
+        {
+            // Notify server that we are leaving
+            await _hubConnection.InvokeAsync("LeaveGame", _currentSession.GameCode, _myNickname);
+        }
+        catch
+        {
+            // Even if server call fails, we still want to exit locally
+        }
+        finally
+        {
+            // Close Lobby Page and go back to Main Page
+            await Navigation.PopAsync();
+        }
     }
 }

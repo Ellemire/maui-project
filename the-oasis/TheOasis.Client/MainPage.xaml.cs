@@ -51,19 +51,23 @@ public partial class MainPage : ContentPage
 
     private async void OnCreateClicked(object sender, EventArgs e)
     {
-        if (_hubConnection == null || _hubConnection.State != HubConnectionState.Connected)
+        if (!CheckConnection()) return;
+
+        // Validation: Nickname
+        string nick = NickEntry.Text;
+        if (string.IsNullOrWhiteSpace(nick))
         {
-            await DisplayAlertAsync("Error", "No connection to server.", "OK");
+            await DisplayAlertAsync("Error", "Please enter your nickname.", "OK");
             return;
         }
 
         try
         {
-            // Assuming Host is "Player 1" initially
-            var session = await _hubConnection.InvokeAsync<GameSessionDto>("CreateGame", "HostPlayer");
+            // Pass the actual nickname instead of "HostPlayer"
+            var session = await _hubConnection!.InvokeAsync<GameSessionDto>("CreateGame", nick);
 
-            // Navigate to Lobby
-            var lobbyPage = new LobbyPage(session, _hubConnection);
+            // Pass the nickname to the Lobby so we know who we are
+            var lobbyPage = new LobbyPage(session, _hubConnection!, nick);
             lobbyPage.SetHostPrivileges(true);
             await Navigation.PushAsync(lobbyPage);
         }
@@ -75,25 +79,28 @@ public partial class MainPage : ContentPage
 
     private async void OnJoinClicked(object sender, EventArgs e)
     {
-        if (_hubConnection == null || _hubConnection.State != HubConnectionState.Connected)
+        if (!CheckConnection()) return;
+
+        string nick = NickEntry.Text;
+        string code = CodeEntry.Text;
+
+        // Validation
+        if (string.IsNullOrWhiteSpace(nick))
         {
-            await DisplayAlertAsync("Error", "No connection to server.", "OK");
+            await DisplayAlertAsync("Error", "Please enter your nickname.", "OK");
             return;
         }
-
-        var code = CodeEntry.Text;
-        if (string.IsNullOrWhiteSpace(code) || code.Length != 4)
+        if (string.IsNullOrWhiteSpace(code) || code.Length != 6)
         {
-            await DisplayAlertAsync("Error", "Please enter a 4-digit code.", "OK");
+            await DisplayAlertAsync("Error", "Please enter a 6-digit code.", "OK");
             return;
         }
 
         try
         {
-            // Hardcoded name for testing, normally you'd ask for input
-            var session = await _hubConnection.InvokeAsync<GameSessionDto>("JoinGame", code, "GuestPlayer");
+            var session = await _hubConnection!.InvokeAsync<GameSessionDto>("JoinGame", code, nick);
 
-            var lobbyPage = new LobbyPage(session, _hubConnection);
+            var lobbyPage = new LobbyPage(session, _hubConnection!, nick);
             lobbyPage.SetHostPrivileges(false);
             await Navigation.PushAsync(lobbyPage);
         }
@@ -101,5 +108,15 @@ public partial class MainPage : ContentPage
         {
             await DisplayAlertAsync("Error", "Failed to join: " + ex.Message, "OK");
         }
+    }
+
+    private bool CheckConnection()
+    {
+        if (_hubConnection == null || _hubConnection.State != HubConnectionState.Connected)
+        {
+            DisplayAlertAsync("Error", "No connection to server.", "OK");
+            return false;
+        }
+        return true;
     }
 }

@@ -12,15 +12,24 @@
                HorizontalOptions="Center" 
                FontAttributes="Bold"/>
 
+        <Entry x:Name="NickEntry"
+               Placeholder="Enter your nickname"
+               HorizontalTextAlignment="Center"
+               TextColor="Black"
+               BackgroundColor="White"
+               HeightRequest="50"
+               WidthRequest="250"
+               MaxLength="12"/>
+
         <Entry x:Name="CodeEntry"
-               Placeholder="0 0 0 0"
-               MaxLength="4"
+               Placeholder="Code (6 digits)"
+               MaxLength="6"
                Keyboard="Numeric"
                HorizontalTextAlignment="Center"
                TextColor="Black"
                BackgroundColor="White"
                HeightRequest="50"
-               WidthRequest="200"
+               WidthRequest="250"
                CharacterSpacing="5"/>
 
         <Button Text="Join Game"
