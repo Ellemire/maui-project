@@ -12,6 +12,7 @@ public partial class LobbyPage : ContentPage
 
     // ObservableCollection updates the UI automatically
     public ObservableCollection<string> Players { get; set; } = new();
+    public ObservableCollection<RoleBadge> ActiveRoles { get; set; } = new();
 
     public LobbyPage(GameSessionDto session, HubConnection hubConnection, string myNickname)
     {
@@ -31,12 +32,22 @@ public partial class LobbyPage : ContentPage
             Players.Add(p);
         }
 
+        ActiveRolesList.ItemsSource = ActiveRoles;
+        UpdateActiveRolesDisplay(session.SelectedRoles); // Initial load
+
         ConfigureSignalR();
     }
 
     public void SetHostPrivileges(bool isHost)
     {
         StartGameBtn.IsVisible = isHost;
+        SettingsBtn.IsVisible = isHost;
+    }
+
+    private async void OnSettingsClicked(object sender, EventArgs e)
+    {
+        // Navigate to Role Selection
+        await Navigation.PushAsync(new RoleSelectionPage(_currentSession, _hubConnection));
     }
 
     private void ConfigureSignalR()
@@ -65,6 +76,18 @@ public partial class LobbyPage : ContentPage
             });
         });
 
+        // Listen: Game Settings Changed
+        _hubConnection.On<List<RoleType>>("GameSettingsChanged", (newRoles) =>
+        {
+            MainThread.BeginInvokeOnMainThread(() =>
+            {
+                // Update local session data
+                _currentSession.SelectedRoles = newRoles;
+                // Update UI
+                UpdateActiveRolesDisplay(newRoles);
+            });
+        });
+
         // Listen: Host Started Game
         _hubConnection.On("GameStarted", async () =>
         {
@@ -72,6 +95,18 @@ public partial class LobbyPage : ContentPage
             {
                 await DisplayAlertAsync("The Oasis", "The game is starting!", "OK");
                 // Navigation to Role/Game Page will happen here
+            });
+        });
+
+        // Listen: Receive Role Assignment
+        _hubConnection.On<PlayerRoleDto>("ReceiveRole", async (roleDto) =>
+        {
+            await MainThread.InvokeOnMainThreadAsync(async () =>
+            {
+                // Remove this page from stack so user can't go back to Lobby
+                // (Optional, depending on desired UX)
+
+                await Navigation.PushAsync(new GamePage(roleDto));
             });
         });
     }
@@ -105,4 +140,28 @@ public partial class LobbyPage : ContentPage
             await Navigation.PopAsync();
         }
     }
+
+    private void UpdateActiveRolesDisplay(List<RoleType> roles)
+    {
+        ActiveRoles.Clear();
+        foreach (var roleType in roles)
+        {
+            var def = GameRules.AllRoles.FirstOrDefault(r => r.Type == roleType);
+            if (def != null)
+            {
+                ActiveRoles.Add(new RoleBadge
+                {
+                    Name = def.Name,
+                    FactionColor = def.Faction == Faction.RoyalConvoy ? Colors.LightGreen : Colors.IndianRed
+                });
+            }
+        }
+    }
+}
+
+// Helper DTO for display in Lobby
+public class RoleBadge
+{
+    public string Name { get; set; } = "";
+    public required Color FactionColor { get; set; }
 }

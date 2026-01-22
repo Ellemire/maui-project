@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TheOasis.Client.RoleSelectionPage"
+             BackgroundColor="#1a1a1a"
+             Title="Setup Roles">
+
+    <Grid RowDefinitions="Auto, *, Auto" Padding="20">
+
+        <Border Grid.Row="0" StrokeShape="RoundRectangle 10" BackgroundColor="#2d3e50" Padding="15" Margin="0,0,0,20">
+            <VerticalStackLayout>
+                <Label x:Name="PlayerCountLabel" Text="Players: 0" TextColor="White" FontAttributes="Bold"/>
+                <Label x:Name="BalanceLabel" Text="Required..." TextColor="#ccc" FontSize="12"/>
+                <BoxView HeightRequest="1" Color="Gray" Margin="0,10"/>
+                <Grid ColumnDefinitions="*,*">
+                    <Label x:Name="GoodCountLabel" Text="Good: 0" TextColor="#4ade80"/>
+                    <Label x:Name="EvilCountLabel" Text="Evil: 0" TextColor="#ef4444" Grid.Column="1"/>
+                </Grid>
+            </VerticalStackLayout>
+        </Border>
+
+        <CollectionView x:Name="RolesCollection" 
+                        Grid.Row="1" 
+                        SelectionMode="None">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Border StrokeShape="RoundRectangle 5" 
+                            Stroke="Transparent" 
+                            BackgroundColor="#333" 
+                            Margin="0,5" 
+                            Padding="10">
+
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnRoleItemTapped" CommandParameter="{Binding .}"/>
+                        </Border.GestureRecognizers>
+
+                        <Grid ColumnDefinitions="Auto, *, Auto">
+                            <BoxView Color="{Binding FactionColor}" WidthRequest="5" VerticalOptions="Fill"/>
+
+                            <VerticalStackLayout Grid.Column="1" Margin="10,0">
+                                <Label Text="{Binding Name}" TextColor="White" FontAttributes="Bold"/>
+                                <Label Text="{Binding Description}" TextColor="#888" FontSize="10"/>
+                            </VerticalStackLayout>
+
+                            <CheckBox IsChecked="{Binding IsSelected}" 
+                                      Color="#F59E0B"
+                                      InputTransparent="True"/>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <Button x:Name="ConfirmBtn"
+                Grid.Row="2"
+                Text="CONFIRM AND SAVE"
+                Clicked="OnConfirmClicked"
+                BackgroundColor="#F59E0B"
+                TextColor="Black"
+                FontAttributes="Bold"
+                Margin="0,20,0,0"/>
+    </Grid>
+</ContentPage>

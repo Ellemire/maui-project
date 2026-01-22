@@ -16,4 +16,5 @@ public class GameSessionDto
     public required string GameCode { get; set; }
     public List<string> Players { get; set; } = new();
     public bool IsStarted { get; set; }
+    public List<RoleType> SelectedRoles { get; set; } = new();
 }
