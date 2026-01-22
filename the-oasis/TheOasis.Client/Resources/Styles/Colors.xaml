@@ -3,8 +3,110 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
-    <!-- Note: For Android please see also Platforms\Android\Resources\values\colors.xml -->
+    <!-- LIGHT MODE -->
+    
+    <Color x:Key="Primary.Light">#E8CD00</Color>
+    <Color x:Key="OnPrimary.Light">#2E2402</Color>
+    <Color x:Key="PrimaryContainer.Light">#FDDF92</Color>
+    <Color x:Key="OnPrimaryContainer.Light">#4A3900</Color>
 
+    <Color x:Key="Secondary.Light">#0F2299</Color>
+    <Color x:Key="OnSecondary.Light">#E6DFFB</Color>
+    <Color x:Key="SecondaryContainer.Light">#B1A0FD</Color>
+    <Color x:Key="OnSecondaryContainer.Light">#0F1257</Color>
+
+    <Color x:Key="Tertiary.Light">#7A0393</Color>
+    <Color x:Key="OnTertiary.Light">#F9E2FD</Color>
+    <Color x:Key="TertiaryContainer.Light">#E984FE</Color>
+    <Color x:Key="OnTertiaryContainer.Light">#32063C</Color>
+
+    <Color x:Key="Error.Light">#B7162D</Color>
+    <Color x:Key="OnError.Light">#FFFFFF</Color>
+    <Color x:Key="ErrorContainer.Light">#FB958E</Color>
+    <Color x:Key="OnErrorContainer.Light">#4E090B</Color>
+
+    <Color x:Key="Success.Light">#7DB0FA</Color>
+    <Color x:Key="OnSuccess.Light">#0B2347</Color>
+    <Color x:Key="SuccessContainer.Light">#C3D6F9</Color>
+    <Color x:Key="OnSuccessContainer.Light">#0B2745</Color>
+
+    <Color x:Key="Info.Light">#005246</Color>
+    <Color x:Key="OnInfo.Light">#D2FFF8</Color>
+    <Color x:Key="InfoContainer.Light">#85FFED</Color>
+    <Color x:Key="OnInfoContainer.Light">#001F1A</Color>
+
+    <Color x:Key="Surface.Light">#FBF6D2</Color>
+    <Color x:Key="SurfaceDim.Light">#F4E787</Color>
+    <Color x:Key="SurfaceBright.Light">#FCF9E1</Color>
+    <Color x:Key="OnSurface.Light">#000000</Color>
+
+    <Color x:Key="SurfaceContainer.Light">#F3EABB</Color>
+    <Color x:Key="SurfaceContainerLowest.Light">#E9DDA3</Color>
+    <Color x:Key="SurfaceContainerLow.Light">#EEE3AE</Color>
+    <Color x:Key="SurfaceContainerHigh.Light">#F7F0C6</Color>
+    <Color x:Key="SurfaceContainerHighest.Light">#FFFFFF</Color>
+
+    <Color x:Key="Outline.Light">#4F4600</Color>
+    <Color x:Key="OutlineVariant.Light">#9E905B</Color>
+
+    <!-- DARK MODE -->
+    
+    <!-- Primary -->
+    <Color x:Key="Primary.Dark">#E8CD00</Color>
+    <Color x:Key="OnPrimary.Dark">#4A3900</Color>
+    <Color x:Key="PrimaryContainer.Dark">#6B5200</Color>
+    <Color x:Key="OnPrimaryContainer.Dark">#FEFBF1</Color>
+
+    <!-- Secondary -->
+    <Color x:Key="Secondary.Dark">#B1A0FD</Color>
+    <Color x:Key="OnSecondary.Dark">#0F1257</Color>
+    <Color x:Key="SecondaryContainer.Dark">#E6DFFB</Color>
+    <Color x:Key="OnSecondaryContainer.Dark">#0F2299</Color>
+
+    <!-- Tertiary -->
+    <Color x:Key="Tertiary.Dark">#E984FE</Color>
+    <Color x:Key="OnTertiary.Dark">#32063C</Color>
+    <Color x:Key="TertiaryContainer.Dark">#F9E2FD</Color>
+    <Color x:Key="OnTertiaryContainer.Dark">#7A0393</Color>
+
+    <!-- Error -->
+    <Color x:Key="Error.Dark">#F9675D</Color>
+    <Color x:Key="OnError.Dark">#230301</Color>
+    <Color x:Key="ErrorContainer.Dark">#FCB4AF</Color>
+    <Color x:Key="OnErrorContainer.Dark">#4E090B</Color>
+
+    <!-- Success (custom semantic role) -->
+    <Color x:Key="Success.Dark">#7DB0FA</Color>
+    <Color x:Key="OnSuccess.Dark">#0B2347</Color>
+    <Color x:Key="SuccessContainer.Dark">#C3D6F9</Color>
+    <Color x:Key="OnSuccessContainer.Dark">#0B2745</Color>
+
+    <!-- Info (custom semantic role) -->
+    <Color x:Key="Info.Dark">#85FFED</Color>
+    <Color x:Key="OnInfo.Dark">#001F1A</Color>
+    <Color x:Key="InfoContainer.Dark">#D2FFF8</Color>
+    <Color x:Key="OnInfoContainer.Dark">#005246</Color>
+
+    <!-- Surface -->
+    <Color x:Key="Surface.Dark">#302500</Color>
+    <Color x:Key="SurfaceDim.Dark">#161100</Color>
+    <Color x:Key="SurfaceBright.Dark">#4A3900</Color>
+    <Color x:Key="OnSurface.Dark">#FFFFFF</Color>
+
+    <!-- Surface Containers -->
+    <Color x:Key="SurfaceContainer.Dark">#1A1400</Color>
+    <Color x:Key="SurfaceContainerLowest.Dark">#251D00</Color>
+    <Color x:Key="SurfaceContainerLow.Dark">#1F1800</Color>
+    <Color x:Key="SurfaceContainerHigh.Dark">#140F00</Color>
+    <Color x:Key="SurfaceContainerHighest.Dark">#0F0B00</Color>
+
+    <!-- Outline -->
+    <Color x:Key="Outline.Dark">#9E905B</Color>
+    <Color x:Key="OutlineVariant.Dark">#4F4600</Color>
+    
+    
+    
+    <!-- Note: For Android please see also Platforms\Android\Resources\values\colors.xml -->
     <Color x:Key="Primary">#E8CD00</Color>
     <Color x:Key="PrimaryDark">#4A3900</Color>
     <Color x:Key="PrimaryDarkText">#2E2402</Color>
@@ -27,18 +129,6 @@
     <Color x:Key="Gray900">#212121</Color>
     <Color x:Key="Gray950">#141414</Color>
 
-    <SolidColorBrush x:Key="PrimaryBrush" Color="{StaticResource Primary}"/>
-    <SolidColorBrush x:Key="SecondaryBrush" Color="{StaticResource Secondary}"/>
-    <SolidColorBrush x:Key="TertiaryBrush" Color="{StaticResource Tertiary}"/>
-    <SolidColorBrush x:Key="WhiteBrush" Color="{StaticResource White}"/>
-    <SolidColorBrush x:Key="BlackBrush" Color="{StaticResource Black}"/>
-
-    <SolidColorBrush x:Key="Gray100Brush" Color="{StaticResource Gray100}"/>
-    <SolidColorBrush x:Key="Gray200Brush" Color="{StaticResource Gray200}"/>
-    <SolidColorBrush x:Key="Gray300Brush" Color="{StaticResource Gray300}"/>
-    <SolidColorBrush x:Key="Gray400Brush" Color="{StaticResource Gray400}"/>
-    <SolidColorBrush x:Key="Gray500Brush" Color="{StaticResource Gray500}"/>
-    <SolidColorBrush x:Key="Gray600Brush" Color="{StaticResource Gray600}"/>
-    <SolidColorBrush x:Key="Gray900Brush" Color="{StaticResource Gray900}"/>
-    <SolidColorBrush x:Key="Gray950Brush" Color="{StaticResource Gray950}"/>
+    <!-- <SolidColorBrush x:Key="PrimaryBrush" Color="{StaticResource Primary}"/> -->
+    
 </ResourceDictionary>

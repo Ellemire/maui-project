@@ -1,0 +1,50 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	x:Class="TheOasis.LightTheme">
+
+    <Color x:Key="Primary.Light">#E8CD00</Color>
+    <Color x:Key="OnPrimary.Light">#2E2402</Color>
+    <Color x:Key="PrimaryContainer.Light">#FDDF92</Color>
+    <Color x:Key="OnPrimaryContainer.Light">#4A3900</Color>
+
+    <Color x:Key="Secondary.Light">#0F2299</Color>
+    <Color x:Key="OnSecondary.Light">#E6DFFB</Color>
+    <Color x:Key="SecondaryContainer.Light">#B1A0FD</Color>
+    <Color x:Key="OnSecondaryContainer.Light">#0F1257</Color>
+
+    <Color x:Key="Tertiary.Light">#7A0393</Color>
+    <Color x:Key="OnTertiary.Light">#F9E2FD</Color>
+    <Color x:Key="TertiaryContainer.Light">#E984FE</Color>
+    <Color x:Key="OnTertiaryContainer.Light">#32063C</Color>
+
+    <Color x:Key="Error.Light">#B7162D</Color>
+    <Color x:Key="OnError.Light">#FFFFFF</Color>
+    <Color x:Key="ErrorContainer.Light">#FB958E</Color>
+    <Color x:Key="OnErrorContainer.Light">#4E090B</Color>
+
+    <Color x:Key="Success.Light">#7DB0FA</Color>
+    <Color x:Key="OnSuccess.Light">#0B2347</Color>
+    <Color x:Key="SuccessContainer.Light">#C3D6F9</Color>
+    <Color x:Key="OnSuccessContainer.Light">#0B2745</Color>
+
+    <Color x:Key="Info.Light">#005246</Color>
+    <Color x:Key="OnInfo.Light">#D2FFF8</Color>
+    <Color x:Key="InfoContainer.Light">#85FFED</Color>
+    <Color x:Key="OnInfoContainer.Light">#001F1A</Color>
+
+    <Color x:Key="Surface.Light">#FBF6D2</Color>
+    <Color x:Key="SurfaceDim.Light">#F4E787</Color>
+    <Color x:Key="SurfaceBright.Light">#FCF9E1</Color>
+    <Color x:Key="OnSurface.Light">#000000</Color>
+
+    <Color x:Key="SurfaceContainer.Light">#F3EABB</Color>
+    <Color x:Key="SurfaceContainerLowest.Light">#E9DDA3</Color>
+    <Color x:Key="SurfaceContainerLow.Light">#EEE3AE</Color>
+    <Color x:Key="SurfaceContainerHigh.Light">#F7F0C6</Color>
+    <Color x:Key="SurfaceContainerHighest.Light">#FFFFFF</Color>
+
+    <Color x:Key="Outline.Light">#4F4600</Color>
+    <Color x:Key="OutlineVariant.Light">#9E905B</Color>
+
+</ResourceDictionary>

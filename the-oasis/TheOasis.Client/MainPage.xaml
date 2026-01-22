@@ -4,48 +4,54 @@
              x:Class="TheOasis.Client.MainPage"
              BackgroundColor="#1a1a1a">
 
-    <VerticalStackLayout Spacing="25" Padding="30" VerticalOptions="Center">
+    <Grid>
+        <Image Source="background.png" 
+               Aspect="AspectFill" />
 
-        <Label Text="THE OASIS" 
-               FontSize="32" 
-               TextColor="White" 
-               HorizontalOptions="Center" 
-               FontAttributes="Bold"/>
+        <ScrollView VerticalOptions="Center">
+            <FlexLayout Direction="Row"
+                        Wrap="Wrap"
+                        JustifyContent="Center"
+                        AlignItems="Center"
+                        AlignContent="Center"
+                        Padding="30">
 
-        <Entry x:Name="NickEntry"
-               Placeholder="Enter your nickname"
-               HorizontalTextAlignment="Center"
-               TextColor="Black"
-               BackgroundColor="White"
-               HeightRequest="50"
-               WidthRequest="250"
-               MaxLength="12"/>
+                <Image Source="foreground.png" 
+                       HeightRequest="300" 
+                       WidthRequest="300"
+                       Aspect="AspectFit"
+                       Margin="20"/>
 
-        <Entry x:Name="CodeEntry"
-               Placeholder="Code (6 digits)"
-               MaxLength="6"
-               Keyboard="Numeric"
-               HorizontalTextAlignment="Center"
-               TextColor="Black"
-               BackgroundColor="White"
-               HeightRequest="50"
-               WidthRequest="250"
-               CharacterSpacing="5"/>
+                <VerticalStackLayout Spacing="25" 
+                                     WidthRequest="300"
+                                     VerticalOptions="Center">
 
-        <Button Text="Join Game"
-                Clicked="OnJoinClicked"
-                BackgroundColor="#3e4c59"
-                TextColor="White"
-                CornerRadius="8"/>
+                    <Entry x:Name="NickEntry"
+                           Placeholder="Enter your nickname"
+                           HorizontalTextAlignment="Center"
+                           TextColor="Black"
+                           BackgroundColor="White"
+                           HeightRequest="50"
+                           MaxLength="12"/>
 
-        <Button Text="Create Game"
-                Clicked="OnCreateClicked"
-                BackgroundColor="#2d3e50"
-                TextColor="#4ade80" 
-                BorderColor="#4ade80"
-                BorderWidth="1"
-                CornerRadius="8"
-                Margin="0,20,0,0"/>
+                    <Entry x:Name="CodeEntry"
+                           Placeholder="Code (6 digits)"
+                           MaxLength="6"
+                           Keyboard="Numeric"
+                           HorizontalTextAlignment="Center"
+                           TextColor="Black"
+                           BackgroundColor="White"
+                           HeightRequest="50"
+                           CharacterSpacing="5"/>
 
-    </VerticalStackLayout>
+                    <Button Text="Join Game"
+                            Clicked="OnJoinClicked"/>
+
+                    <Button Text="Create Game"
+                            Clicked="OnCreateClicked"/>
+                </VerticalStackLayout>
+
+            </FlexLayout>
+        </ScrollView>
+    </Grid>
 </ContentPage>

@@ -1,0 +1,59 @@
+<ResourceDictionary 
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"                
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	x:Class="TheOasis.DarkTheme">
+
+    <!-- Primary -->
+    <Color x:Key="Primary.Dark">#4A3900</Color>
+    <Color x:Key="OnPrimary.Dark">#E8CD00</Color>
+    <Color x:Key="PrimaryContainer.Dark">#6B5200</Color>
+    <Color x:Key="OnPrimaryContainer.Dark">#FEFBF1</Color>
+
+    <!-- Secondary -->
+    <Color x:Key="Secondary.Dark">#B1A0FD</Color>
+    <Color x:Key="OnSecondary.Dark">#0F1257</Color>
+    <Color x:Key="SecondaryContainer.Dark">#E6DFFB</Color>
+    <Color x:Key="OnSecondaryContainer.Dark">#0F2299</Color>
+
+    <!-- Tertiary -->
+    <Color x:Key="Tertiary.Dark">#E984FE</Color>
+    <Color x:Key="OnTertiary.Dark">#32063C</Color>
+    <Color x:Key="TertiaryContainer.Dark">#F9E2FD</Color>
+    <Color x:Key="OnTertiaryContainer.Dark">#7A0393</Color>
+
+    <!-- Error -->
+    <Color x:Key="Error.Dark">#F9675D</Color>
+    <Color x:Key="OnError.Dark">#230301</Color>
+    <Color x:Key="ErrorContainer.Dark">#FCB4AF</Color>
+    <Color x:Key="OnErrorContainer.Dark">#4E090B</Color>
+
+    <!-- Success (custom semantic role) -->
+    <Color x:Key="Success.Dark">#7DB0FA</Color>
+    <Color x:Key="OnSuccess.Dark">#0B2347</Color>
+    <Color x:Key="SuccessContainer.Dark">#C3D6F9</Color>
+    <Color x:Key="OnSuccessContainer.Dark">#0B2745</Color>
+
+    <!-- Info (custom semantic role) -->
+    <Color x:Key="Info.Dark">#85FFED</Color>
+    <Color x:Key="OnInfo.Dark">#001F1A</Color>
+    <Color x:Key="InfoContainer.Dark">#D2FFF8</Color>
+    <Color x:Key="OnInfoContainer.Dark">#005246</Color>
+
+    <!-- Surface -->
+    <Color x:Key="Surface.Dark">#302500</Color>
+    <Color x:Key="SurfaceDim.Dark">#161100</Color>
+    <Color x:Key="SurfaceBright.Dark">#4A3900</Color>
+    <Color x:Key="OnSurface.Dark">#FFFFFF</Color>
+
+    <!-- Surface Containers -->
+    <Color x:Key="SurfaceContainer.Dark">#1A1400</Color>
+    <Color x:Key="SurfaceContainerLowest.Dark">#251D00</Color>
+    <Color x:Key="SurfaceContainerLow.Dark">#1F1800</Color>
+    <Color x:Key="SurfaceContainerHigh.Dark">#140F00</Color>
+    <Color x:Key="SurfaceContainerHighest.Dark">#0F0B00</Color>
+
+    <!-- Outline -->
+    <Color x:Key="Outline.Dark">#9E905B</Color>
+    <Color x:Key="OutlineVariant.Dark">#4F4600</Color>
+
+</ResourceDictionary>

@@ -7,11 +7,18 @@ namespace TheOasis.Client
         public App()
         {
             InitializeComponent();
+            InitTheme();
         }
 
         protected override Window CreateWindow(IActivationState? activationState)
         {
             return new Window(new AppShell());
+        }
+
+        private void InitTheme()
+        {
+            AppTheme currentTheme = App.Current!.RequestedTheme;
+            App.Current.UserAppTheme = AppTheme.Light;
         }
     }
 }
