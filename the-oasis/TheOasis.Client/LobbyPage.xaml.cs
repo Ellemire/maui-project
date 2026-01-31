@@ -106,7 +106,7 @@ public partial class LobbyPage : ContentPage
                 // Remove this page from stack so user can't go back to Lobby
                 // (Optional, depending on desired UX)
 
-                await Navigation.PushAsync(new GamePage(roleDto));
+                await Navigation.PushAsync(new GamePage(roleDto, _hubConnection, _currentSession.GameCode, _myNickname));
             });
         });
     }

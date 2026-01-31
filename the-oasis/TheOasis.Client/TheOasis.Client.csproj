@@ -73,6 +73,9 @@
 	  <MauiXaml Update="LobbyPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="MissionBoardPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Resources\Styles\Colors.Dark.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

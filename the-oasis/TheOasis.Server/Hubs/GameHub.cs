@@ -210,4 +210,127 @@ public class GameHub : Hub
             //await Clients.Group(gameCode).SendAsync("GameStarted");
         }
     }
+
+    // 1. Player clicks "Proceed to Mission"
+    public async Task PlayerReadyForMission(string gameCode, string playerName)
+    {
+        if (_gameManager.Games.TryGetValue(gameCode, out var session))
+        {
+            session.ReadyPlayers.Add(playerName);
+
+            // If everyone is ready, start the game loop
+            if (session.ReadyPlayers.Count == session.Players.Count)
+            {
+                // Init Game
+                session.CurrentPhase = GamePhase.TeamSelection;
+                session.MissionIndex = 0;
+                session.VoteTrack = 0;
+                session.LeaderIndex = new Random().Next(session.Players.Count); // Random leader start
+
+                await BroadcastGameState(gameCode, session, "Game Started! First Leader selected.");
+            }
+        }
+    }
+
+    // 2. Leader proposes a team
+    public async Task ProposeTeam(string gameCode, List<string> selectedPlayers)
+    {
+        if (_gameManager.Games.TryGetValue(gameCode, out var session))
+        {
+            // Validate: Is it this player's turn? (Skipped for brevity, rely on UI)
+            // Validate: Count matches mission rules?
+            int required = MissionRules.TeamSizes[session.Players.Count][session.MissionIndex];
+            if (selectedPlayers.Count != required)
+                throw new HubException($"Select exactly {required} players.");
+
+            session.CurrentProposal = selectedPlayers;
+            session.CurrentPhase = GamePhase.Voting;
+            session.CurrentVotes.Clear(); // Reset votes
+
+            await BroadcastGameState(gameCode, session, "Team proposed. Please Vote!");
+        }
+    }
+
+    // 3. Player votes
+    public async Task VoteForTeam(string gameCode, string playerName, bool approve)
+    {
+        if (_gameManager.Games.TryGetValue(gameCode, out var session))
+        {
+            session.CurrentVotes[playerName] = approve;
+
+            // Check if everyone voted
+            if (session.CurrentVotes.Count == session.Players.Count)
+            {
+                // Tally votes
+                int yesVotes = session.CurrentVotes.Values.Count(v => v);
+                int noVotes = session.CurrentVotes.Values.Count(v => !v);
+
+                bool isApproved = yesVotes > noVotes; // Strict majority usually required
+
+                var historyEntry = new HistoryEntryDto
+                {
+                    MissionNumber = session.MissionIndex + 1,
+                    AttemptNumber = session.VoteTrack + 1, // 1st attempt is index 0
+                    LeaderName = session.Players[session.LeaderIndex],
+                    ProposedTeam = new List<string>(session.CurrentProposal),
+                    Votes = new Dictionary<string, bool>(session.CurrentVotes),
+                    WasApproved = isApproved,
+                    MissionOutcome = null // Will be updated later if mission executes
+                };
+                session.History.Add(historyEntry);
+
+                // Prepare results to show everyone
+                var voteResults = new Dictionary<string, bool>(session.CurrentVotes);
+
+                if (isApproved)
+                {
+                    // Team Approved -> Go to Mission Execution
+                    session.CurrentPhase = GamePhase.MissionExecution;
+                    session.VoteTrack = 0; // Reset track on success
+                    await BroadcastGameState(gameCode, session, "Team Approved! Proceeding to Mission.", voteResults);
+                }
+                else
+                {
+                    // Team Rejected
+                    session.VoteTrack++;
+                    session.CurrentPhase = GamePhase.TeamSelection;
+                    session.LeaderIndex = (session.LeaderIndex + 1) % session.Players.Count; // Next leader
+                    session.CurrentProposal.Clear();
+
+                    string msg = "Vote Failed.";
+
+                    // Check Evil Win Condition (5 fails)
+                    if (session.VoteTrack >= 5)
+                    {
+                        session.CurrentPhase = GamePhase.GameOver;
+                        msg = "EVIL WINS! 5 Failed Votes.";
+                    }
+
+                    await BroadcastGameState(gameCode, session, msg, voteResults);
+                }
+            }
+        }
+    }
+
+    // Helper to send the GameStateDto to everyone
+    private async Task BroadcastGameState(string gameCode, GameSessionDto session, string systemMsg, Dictionary<string, bool>? lastVotes = null)
+    {
+        int required = MissionRules.TeamSizes[session.Players.Count][session.MissionIndex];
+
+        var state = new GameStateDto
+        {
+            Phase = session.CurrentPhase,
+            AllPlayers = new List<string>(session.Players),
+            LeaderName = session.Players[session.LeaderIndex],
+            CurrentMissionNumber = session.MissionIndex + 1,
+            RequiredTeamSize = required,
+            FailedVotesCount = session.VoteTrack,
+            ProposedTeam = session.CurrentProposal,
+            LastVoteResults = lastVotes,
+            SystemMessage = systemMsg,
+            GameHistory = session.History
+        };
+
+        await Clients.Group(gameCode).SendAsync("UpdateGameState", state);
+    }
 }
