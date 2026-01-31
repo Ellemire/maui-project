@@ -27,6 +27,17 @@ public class GameSessionDto
     public List<string> CurrentProposal { get; set; } = new();
     public Dictionary<string, bool> CurrentVotes { get; set; } = new();
     public List<HistoryEntryDto> History { get; set; } = new();
+
+    // Score Tracking
+    public int GoodWins { get; set; } = 0;
+    public int EvilWins { get; set; } = 0;
+
+    // Mission Execution State
+    // Key: PlayerName, Value: Card Played
+    public Dictionary<string, MissionCard> MissionCards { get; set; } = new();
+
+    // Persist Roles (Critical for Validation)
+    public Dictionary<string, RoleType> PlayerRoles { get; set; } = new();
 }
 
 public class GameStateDto
@@ -54,6 +65,10 @@ public class GameStateDto
 
     // Message to display (e.g. "Vote Failed", "Team Approved")
     public string SystemMessage { get; set; } = "";
+
+    // Reveal everyone's identity at GameOver
+    // Key: PlayerName, Value: Role Name (e.g. "Assassin", "High Priestess of Isis")
+    public Dictionary<string, string>? GameOverRoles { get; set; }
 }
 
 public static class MissionRules

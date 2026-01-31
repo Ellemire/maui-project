@@ -52,6 +52,12 @@ public partial class LobbyPage : ContentPage
 
     private void ConfigureSignalR()
     {
+        _hubConnection.Remove("PlayerJoined");
+        _hubConnection.Remove("PlayerLeft");
+        _hubConnection.Remove("GameStarted");
+        _hubConnection.Remove("GameSettingsChanged");
+        _hubConnection.Remove("ReceiveRole");
+
         // Listen: Player Joined
         _hubConnection.On<string>("PlayerJoined", (newPlayerName) =>
         {
@@ -93,8 +99,7 @@ public partial class LobbyPage : ContentPage
         {
             await MainThread.InvokeOnMainThreadAsync(async () =>
             {
-                await DisplayAlertAsync("The Oasis", "The game is starting!", "OK");
-                // Navigation to Role/Game Page will happen here
+
             });
         });
 
@@ -136,8 +141,20 @@ public partial class LobbyPage : ContentPage
         }
         finally
         {
-            // Close Lobby Page and go back to Main Page
-            await Navigation.PopAsync();
+            if (Navigation.NavigationStack.Count <= 1)
+            {
+                // We are at root, do a hard reset to MainPage
+                var window = Application.Current?.Windows.FirstOrDefault();
+                if (window is not null)
+                {
+                    window.Page = new NavigationPage(new MainPage());
+                }
+            }
+            else
+            {
+                // Close Lobby Page and go back to Main Page
+                await Navigation.PopAsync();
+            }
         }
     }
 

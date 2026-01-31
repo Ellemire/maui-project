@@ -50,7 +50,7 @@ public partial class GamePage : ContentPage
                 _hubConnection.Remove("UpdateGameState");
 
                 // Navigate to the main Game Board
-                await Navigation.PushAsync(new MissionBoardPage(_hubConnection, _gameCode, _myNickname, state));
+                await Navigation.PushAsync(new MissionBoardPage(_hubConnection, _gameCode, _myNickname, state, _roleData));
             });
         });
     }
