@@ -104,7 +104,16 @@
     <Color x:Key="Outline.Dark">#9E905B</Color>
     <Color x:Key="OutlineVariant.Dark">#4F4600</Color>
     
-    
+    <!-- Brushes -->
+    <LinearGradientBrush x:Key="BackgroundBrush" StartPoint="0,0" EndPoint="0,1">
+        <GradientStop Color="#0F2299" Offset="0.39" />
+        <GradientStop Color="#3467FF" Offset="0.87" />
+    </LinearGradientBrush>
+
+    <RadialGradientBrush x:Key="RadialBackgroundBrush">
+        <GradientStop Color="#3467FF" Offset="0.0" />
+        <GradientStop Color="#0F2299" Offset="0.70" />
+    </RadialGradientBrush>
     
     <!-- Note: For Android please see also Platforms\Android\Resources\values\colors.xml -->
     <Color x:Key="Primary">#E8CD00</Color>
