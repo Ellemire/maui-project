@@ -39,6 +39,7 @@
     <Color x:Key="SurfaceDim.Light">#F4E787</Color>
     <Color x:Key="SurfaceBright.Light">#FCF9E1</Color>
     <Color x:Key="OnSurface.Light">#000000</Color>
+    <Color x:Key="OnSurfaceVariant.Light">#3b3b3b</Color>
 
     <Color x:Key="SurfaceContainer.Light">#F3EABB</Color>
     <Color x:Key="SurfaceContainerLowest.Light">#E9DDA3</Color>
@@ -92,6 +93,7 @@
     <Color x:Key="SurfaceDim.Dark">#161100</Color>
     <Color x:Key="SurfaceBright.Dark">#4A3900</Color>
     <Color x:Key="OnSurface.Dark">#FFFFFF</Color>
+    <Color x:Key="OnSurfaceVariant.Dark">#e2e2e2</Color>
 
     <!-- Surface Containers -->
     <Color x:Key="SurfaceContainer.Dark">#1A1400</Color>

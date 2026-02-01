@@ -64,20 +64,12 @@
 
                         <Entry x:Name="NickEntry"
                             Placeholder="Enter your nickname"
-                            HorizontalTextAlignment="Center"
-                            TextColor="Black"
-                            BackgroundColor="White"
-                            HeightRequest="50"
                             MaxLength="12"/>
 
                         <Entry x:Name="CodeEntry"
                             Placeholder="Code (6 digits)"
                             MaxLength="6"
                             Keyboard="Numeric"
-                            HorizontalTextAlignment="Center"
-                            TextColor="Black"
-                            BackgroundColor="White"
-                            HeightRequest="50"
                             CharacterSpacing="5"/>
 
                         <Button Text="Join Game"
