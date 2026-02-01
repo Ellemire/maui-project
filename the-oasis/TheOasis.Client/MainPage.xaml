@@ -2,56 +2,122 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TheOasis.Client.MainPage"
-             BackgroundColor="#1a1a1a">
+             BackgroundColor="{StaticResource Secondary}">
 
-    <Grid>
-        <Image Source="background.png" 
-               Aspect="AspectFill" />
+    <!-- Content -->
+    <Grid x:Name="MainParentGrid">
+        <Rectangle x:Name="BackgroundFill" Fill="{StaticResource BackgroundBrush}"/>
 
-        <ScrollView VerticalOptions="Center">
-            <FlexLayout Direction="Row"
+        <Grid x:Name="BackgroundGrid" ZIndex="0">
+            <Grid.RowDefinitions>
+                <RowDefinition x:Name="SkyRow" Height="3*" />
+                <RowDefinition x:Name="SandRow" Height="1*" />
+            </Grid.RowDefinitions>
+            
+            <Image x:Name="SandImage"
+                   Source="sand.png"
+                   Grid.Row="1"
+                   Aspect="Fill"
+                   VerticalOptions="End"/>
+        </Grid>
+
+        <Grid x:Name="ContentGrid" ZIndex="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition x:Name="Col0" Width="3*"/>
+                <ColumnDefinition x:Name="Col1" Width="2*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition x:Name="Row0" Height="*"/>
+                <RowDefinition x:Name="Row1" Height="0"/>
+            </Grid.RowDefinitions>
+
+            <!-- Views -->
+            <Grid x:Name="ViewsGrid">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+
+                <Image x:Name="TitleImage"
+                       Source="titledesktop.png"
+                       Margin="20"/>
+
+                <Image Source="bedouin.png"
+                       Grid.Row="1"/>
+                
+            </Grid>
+
+            <!-- Controls -->
+            <ScrollView x:Name="ControlsScroll" 
+                        Grid.Column="1" Grid.Row="0">
+                
+                
+                <FlexLayout Direction="Row"
                         Wrap="Wrap"
                         JustifyContent="Center"
                         AlignItems="Center"
-                        AlignContent="Center"
-                        Padding="30">
+                        AlignContent="Center">
 
-                <Image Source="foreground.png" 
-                       HeightRequest="300" 
-                       WidthRequest="300"
-                       Aspect="AspectFit"
-                       Margin="20"/>
+                    <VerticalStackLayout Spacing="25" 
+                                        WidthRequest="300"
+                                        VerticalOptions="Center">
 
-                <VerticalStackLayout Spacing="25" 
-                                     WidthRequest="300"
-                                     VerticalOptions="Center">
+                        <Entry x:Name="NickEntry"
+                            Placeholder="Enter your nickname"
+                            MaxLength="12"/>
 
-                    <Entry x:Name="NickEntry"
-                           Placeholder="Enter your nickname"
-                           HorizontalTextAlignment="Center"
-                           TextColor="Black"
-                           BackgroundColor="White"
-                           HeightRequest="50"
-                           MaxLength="12"/>
+                        <Entry x:Name="CodeEntry"
+                            Placeholder="Code (6 digits)"
+                            MaxLength="6"
+                            Keyboard="Numeric"
+                            CharacterSpacing="5"/>
 
-                    <Entry x:Name="CodeEntry"
-                           Placeholder="Code (6 digits)"
-                           MaxLength="6"
-                           Keyboard="Numeric"
-                           HorizontalTextAlignment="Center"
-                           TextColor="Black"
-                           BackgroundColor="White"
-                           HeightRequest="50"
-                           CharacterSpacing="5"/>
-
-                    <Button Text="Join Game"
+                        <Button Text="Join Game"
                             Clicked="OnJoinClicked"/>
 
-                    <Button Text="Create Game"
+                        <Button Text="Create Game"
                             Clicked="OnCreateClicked"/>
-                </VerticalStackLayout>
+                    </VerticalStackLayout>
 
-            </FlexLayout>
-        </ScrollView>
+                </FlexLayout>
+            </ScrollView>
+        </Grid>
+
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="OrientationStates">
+                <VisualState x:Name="Portrait">
+                    <VisualState.StateTriggers>
+                        <OrientationStateTrigger Orientation="Portrait" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter TargetName="Col0" Property="ColumnDefinition.Width" Value="*" />
+                        <Setter TargetName="Col1" Property="ColumnDefinition.Width" Value="0" />
+                        <Setter TargetName="Row1" Property="RowDefinition.Height" Value="*" />
+
+                        <Setter TargetName="ControlsScroll" Property="Grid.Column" Value="0" />
+                        <Setter TargetName="ControlsScroll" Property="Grid.Row" Value="1" />
+
+                        <Setter TargetName="TitleImage" Property="Image.Source" Value="titlemobile.png" />
+                        <Setter TargetName="BackgroundFill" Property="Rectangle.Fill" Value="{StaticResource RadialBackgroundBrush}" />
+
+
+                        <Setter TargetName="SandImage" Property="Image.Aspect" Value="AspectFill" />
+                        <Setter TargetName="SkyRow" Property="RowDefinition.Height" Value="2*" />
+                        <Setter TargetName="SandRow" Property="RowDefinition.Height" Value="5*" />
+
+                    </VisualState.Setters>
+                </VisualState>
+
+                <VisualState x:Name="Landscape">
+                    <VisualState.StateTriggers>
+                        <OrientationStateTrigger Orientation="Landscape" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter TargetName="SkyRow" Property="RowDefinition.Height" Value="2*" />
+                        <Setter TargetName="SandRow" Property="RowDefinition.Height" Value="1*" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
     </Grid>
 </ContentPage>
