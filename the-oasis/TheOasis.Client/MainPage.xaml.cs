@@ -6,7 +6,8 @@ namespace TheOasis.Client;
 public partial class MainPage : ContentPage
 {
     private HubConnection? _hubConnection;
-    private const string ServerUrl = "https://k7dc640z-7208.euw.devtunnels.ms/gameHub";
+    //private const string ServerUrl = "https://k7dc640z-7208.euw.devtunnels.ms/gameHub";
+    private const string ServerUrl = "https://nxj54rpw-7208.euw.devtunnels.ms/gameHub";
     private bool _isConnected = false;
 
     public MainPage()

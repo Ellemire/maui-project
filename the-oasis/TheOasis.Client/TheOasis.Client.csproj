@@ -19,7 +19,7 @@
 		<Nullable>enable</Nullable>
 
 		<!-- Display name -->
-		<ApplicationTitle>TheOasis.Client</ApplicationTitle>
+		<ApplicationTitle>The Oasis</ApplicationTitle>
 
 		<!-- App Identifier -->
 		<ApplicationId>com.companyname.theoasis.client</ApplicationId>
@@ -40,12 +40,11 @@
 
 	<ItemGroup>
 		<!-- App Icon -->
-		<MauiIcon Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'" 
-				  Include="Resources\AppIcon\icon2a.svg" ForegroundColor="#0F2299" />
-		<MauiIcon Include="Resources\AppIcon\icon2.svg" ForegroundColor="#0F2299" />
-		
+		<MauiIcon Include="Resources\AppIcon\iconbackground.svg" ForegroundFile="Resources\AppIcon\iconforeground.svg" />
+		<MauiIcon Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'" Include="Resources\AppIcon\iconmobile.svg" />
+
 		<!-- Splash Screen -->
-		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
+		<MauiSplashScreen Include="Resources\Splash\iconforeground.svg" Color="#0F2299" BaseSize="128,128" />
 
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />
@@ -87,6 +86,10 @@
 	  <MauiXaml Update="RoleSelectionPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Resources\Components\" />
 	</ItemGroup>
 
 </Project>

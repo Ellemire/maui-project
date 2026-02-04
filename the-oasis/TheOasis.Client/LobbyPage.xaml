@@ -2,101 +2,116 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TheOasis.Client.LobbyPage"
-             BackgroundColor="#1a1a1a"
-             NavigationPage.HasBackButton="False">
+             Style="{StaticResource NormalPage}">
 
-    <Grid RowDefinitions="Auto, *, Auto, Auto" Padding="20">
+    <!-- Body -->
+    <Grid x:Name="BodyGrid"
+          Padding="32">
 
-        <VerticalStackLayout Grid.Row="0" Spacing="10" HorizontalOptions="Center">
-            <Label Text="GAME CODE" TextColor="#888" FontSize="14" HorizontalTextAlignment="Center"/>
+        <!-- Content -->      
+        <Grid x:Name="ContentGridLobby" ZIndex="1">
+            <Grid.RowDefinitions>
+                <RowDefinition x:Name="Row0" Height="Auto"/>
+                <RowDefinition x:Name="Row1" Height="*"/>
+                <RowDefinition x:Name="Row2" Height="Auto"/>
+            </Grid.RowDefinitions>
 
-            <Border StrokeShape="RoundRectangle 10" 
-                    Stroke="Transparent"
-                    BackgroundColor="#F59E0B" 
-                    Padding="20,10">
-                <Label x:Name="GameCodeLabel" 
-                       Text="XXXX" 
-                       TextColor="Black" 
-                       FontSize="32" 
+            
+            <!-- Navbar -->
+            <Grid Grid.Row="0"
+                  Padding="8">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Leave Button -->
+                <Button Grid.Column="0"
+                        Text="Leave Lobby"
+                        Clicked="OnLeaveClicked"
+                        Style="{StaticResource ErrorButton}"/>
+
+                <!-- Game Code -->
+                <VerticalStackLayout Grid.Column="1"
+                                     HorizontalOptions="Center">
+
+                    <Label Text="GAME CODE"
+                           FontSize="14"/>
+
+                    <Label x:Name="GameCodeLabel" 
+                       Text="XXXX"
                        FontAttributes="Bold" 
                        CharacterSpacing="5"/>
-            </Border>
 
-            <Label Text="Waiting for players..." TextColor="#CCC" FontAttributes="Italic"/>
-        </VerticalStackLayout>
+                </VerticalStackLayout>
 
-        <CollectionView x:Name="PlayersList" Grid.Row="1" Margin="0,30">
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <Border StrokeShape="RoundRectangle 8"
-                            Stroke="Transparent"
-                            BackgroundColor="#2d3e50" 
-                            Margin="0,5" 
-                            Padding="15">
-                        <Grid ColumnDefinitions="*, Auto">
-                            <Label Text="{Binding .}" TextColor="White" FontSize="18" VerticalOptions="Center"/>
-                            <Label Grid.Column="1" Text="👤" TextColor="#4ade80"/>
-                        </Grid>
-                    </Border>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
-
-        <VerticalStackLayout Grid.Row="2" Margin="0,10">
-            <Label Text="Active Roles Configuration:" TextColor="Gray" FontSize="12" Margin="0,0,0,5"/>
-
-            <CollectionView x:Name="ActiveRolesList" 
-                            HeightRequest="40" 
-                            SelectionMode="None">
-                <CollectionView.ItemsLayout>
-                    <LinearItemsLayout Orientation="Horizontal" ItemSpacing="5"/>
-                </CollectionView.ItemsLayout>
-                <CollectionView.ItemTemplate>
-                    <DataTemplate>
-                        <Border StrokeShape="RoundRectangle 10" 
-                                BackgroundColor="{Binding FactionColor}" 
-                                Padding="10,5"
-                                StrokeThickness="0">
-                            <Label Text="{Binding Name}" TextColor="Black" FontSize="10" FontAttributes="Bold"/>
-                        </Border>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
-        </VerticalStackLayout>
-
-        <VerticalStackLayout Grid.Row="3" Spacing="15">
-
-            <Grid ColumnDefinitions="*, *" ColumnSpacing="10">
-                <Border StrokeShape="RoundRectangle 0" Stroke="Transparent" BackgroundColor="#333" Padding="10">
-                    <Label Text="Win condition" TextColor="Gray" HorizontalOptions="Center" FontSize="10"/>
-                </Border>
-
-                <Border StrokeShape="RoundRectangle 0" Stroke="Transparent" BackgroundColor="#333" Padding="10" Grid.Column="1">
-                    <Label Text="Roles count" TextColor="Gray" HorizontalOptions="Center" FontSize="10"/>
-                </Border>
             </Grid>
 
-            <Button x:Name="SettingsBtn"
-                Text="CONFIGURE ROLES"
-                Clicked="OnSettingsClicked"
-                BackgroundColor="#3e4c59"
-                TextColor="White"
-                IsVisible="False"
-                Margin="0,0,0,10"/>
+            <!-- Lists -->
+            <Grid Grid.Row="1"
+                  ColumnSpacing="8">
+                
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
 
-            <Button x:Name="StartGameBtn"
-                    Text="START GAME"
-                    Clicked="OnStartGameClicked"
-                    BackgroundColor="#F59E0B"
-                    TextColor="Black"
-                    FontAttributes="Bold"
-                    HeightRequest="50"
-                    IsVisible="False"/>
+                <!-- Players List -->
+                <ScrollView>
+                    <CollectionView x:Name="PlayersList"
+                                    BackgroundColor="AliceBlue">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid ColumnDefinitions="*, Auto">
+                                    <Label Text="{Binding .}"/>
+                                    <Label Grid.Column="1" 
+                                           Text="👤" />
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </ScrollView>
 
-            <Button Text="Leave Lobby"
-                    Clicked="OnLeaveClicked"
-                    BackgroundColor="Transparent"
-                    TextColor="#ef4444"/>
-        </VerticalStackLayout>
+                <!-- Roles Configuration -->
+                <VerticalStackLayout Grid.Column="1"
+                                     BackgroundColor="AntiqueWhite">
+                    <Label Text="Active Roles Configuration:"/>
+
+                    <CollectionView x:Name="ActiveRolesList"
+                                    SelectionMode="None">
+                        <CollectionView.ItemsLayout>
+                            <LinearItemsLayout Orientation="Horizontal" 
+                                               ItemSpacing="5"/>
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Border StrokeShape="RoundRectangle 10" 
+                                        BackgroundColor="{Binding FactionColor}">
+                                    <Label Text="{Binding Name}"/>
+                                </Border>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </VerticalStackLayout>
+            </Grid>
+
+            <!-- Control Buttons-->
+            <VerticalStackLayout Grid.Row="2" 
+                                 Padding="8"
+                                 Spacing="15">
+
+                <Button x:Name="SettingsBtn"
+                        Text="Configure Roles"
+                        Clicked="OnSettingsClicked"
+                        IsVisible="False"/>
+
+                <Button x:Name="StartGameBtn"
+                        Text="Start Game"
+                        Clicked="OnStartGameClicked"
+                        IsVisible="False"/>
+
+            </VerticalStackLayout>
+            
+        </Grid>
     </Grid>
 </ContentPage>
